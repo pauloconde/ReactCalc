@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './App.css';
 
-import Boton from './components/Boton';
-import BotonClear from './components/BotonClear';
-import Pantalla from './components/Pantalla';
+import Button from './components/Button';
+import ButtonClear from './components/ButtonClear';
+import Display from './components/Display';
 
 function App() {
   let previousValue = 500;
@@ -49,33 +49,33 @@ function App() {
   return (
     <div className='App'>
       <div className='calculator'>
-        <Pantalla input={inputValue} />
+        <Display input={inputValue} />
         <div className='line'>
-          <Boton>1</Boton>
-          <Boton>2</Boton>
-          <Boton>3</Boton>
-          <Boton>+</Boton>
+          <Button>1</Button>
+          <Button>2</Button>
+          <Button>3</Button>
+          <Button>+</Button>
         </div>
         <div className='line'>
-          <Boton>4</Boton>
-          <Boton>5</Boton>
-          <Boton>6</Boton>
-          <Boton>−</Boton>
+          <Button>4</Button>
+          <Button>5</Button>
+          <Button>6</Button>
+          <Button>−</Button>
         </div>
         <div className='line'>
-          <Boton>7</Boton>
-          <Boton>8</Boton>
-          <Boton>9</Boton>
-          <Boton>×</Boton>
+          <Button>7</Button>
+          <Button>8</Button>
+          <Button>9</Button>
+          <Button>×</Button>
         </div>
         <div className='line'>
-          <Boton handleClic={calcular}> =</Boton>
-          <Boton>0</Boton>
-          <Boton>.</Boton>
-          <Boton>÷</Boton>
+          <Button handleClic={calcular}> =</Button>
+          <Button>0</Button>
+          <Button>.</Button>
+          <Button>÷</Button>
         </div>
         <div className='line'>
-          <BotonClear>Clear</BotonClear>
+          <ButtonClear>Clear</ButtonClear>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/BotonClear.css'
+import '../styles/ButtonClear.css'
 
-export default function BotonClear(props) {
+export default function ButtonClear(props) {
   return (
     <div className='button-clear' onClick={props.manejarClear}>
     {props.children}
