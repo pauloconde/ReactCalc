@@ -1,10 +1,11 @@
-# Simple calculator app, made with React
+
+# 🧮 Simple calculator app, made with React
 
 This project was done within a hands-on coding skills lesson.
 
 ## Instalation
 
-CLone this repository in your local directory.
+Clone this repository in your local directory.
 
 In project directory, you can run:
 
