@@ -29,7 +29,7 @@ function App() {
           <Boton>*</Boton>
         </div>
         <div className='line'>
-          <Boton ></Boton>
+          <Boton > =</Boton>
           <Boton >0</Boton>
           <Boton >.</Boton>
           <Boton >/</Boton>

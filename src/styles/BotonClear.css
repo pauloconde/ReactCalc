@@ -1,27 +1,20 @@
-.button {
+.button-clear {
     background-color: #555;
     color: #bbb;
-    min-width: 50px;
+    min-width: 236px;
     min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: Lato, sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 7px;
     border: 1px solid #333;
+    text-transform: uppercase;
 }
 
-.button:hover,.operator:hover  {
-    background-color: #363636;
+.button-clear:hover {
+    background-color: #444;
     color: #aaa;
     cursor: pointer;
-    font-size: 23px;
-    transition: all;
 }
-
-.operator {
-    background-color: #464646;
-  }
-
-
