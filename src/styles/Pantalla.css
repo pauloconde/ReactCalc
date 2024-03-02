@@ -1,15 +1,29 @@
-.input {
+.screen {
     background-color: #333;
     color: #eee;
     min-width: 221px;
     min-height: 80px;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    font-family: monospace;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    
     font-size: 27px;
     border-radius: 7px;
     border: 1px solid #333;
     padding-right: 15px;
+    gap: 5px;
     margin-bottom: 12px;
+}
+
+.input-value {
+    color: #eee;
+    font-size: 27px;
+    font-family: monospace;
+}
+
+.previous-value {
+    color: #888;
+    font-size: 17px;
+    font-family: monospace;
 }

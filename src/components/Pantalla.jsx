@@ -1,10 +1,11 @@
-import React from 'react'
-import '../styles/Pantalla.css'
+import React from 'react';
+import '../styles/Pantalla.css';
 
-export default function Pantalla({ input }) {
+export default function Pantalla({ inputValue, previousValue }) {
   return (
-    <div className='input'>
-    {input}      
-  </div>
-  )
+    <div className='screen'>
+      <div className='previous-value'>6546 +</div>
+      <div className='input-value'>123465.02</div>
+    </div>
+  );
 }
