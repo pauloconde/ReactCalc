@@ -1,16 +1,16 @@
 # Simple calculator app, made with React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was done within a hands-on coding skills lesson.
 
 ## Instalation
 
 CLone this repository in your local directory.
 
-In the project directory, you can run:
+In project directory, you can run:
 
 ### `npm install`
 
-after proccess was completed run app with:
+Once the process is complete, run the application with:
 
 ### `npm start`
 
@@ -27,5 +27,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
 
