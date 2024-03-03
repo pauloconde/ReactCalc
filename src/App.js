@@ -11,24 +11,7 @@ function App() {
   let [inputValue, setInputValue] = useState(0);
   let [afterEqual, setAfterEqual] = useState(false);
 
-  // function handleNumber(num) {
-  //   if (inputValue === 0 ) {
-  //     setInputValue(num);
-  //     setEvalValue(evalValue + num);
-  //   } else if (afterEqual) {
-  //     afterEqual = false;
-  //     setInputValue(num);
-  //     setEvalValue(num);
-  //   } else {
-  //     setInputValue(inputValue + num);
-  //     setEvalValue(evalValue + num);
-  //   }
-  //   console.log(`EvalValue: ${evalValue}`);
-  //   console.log(`InputValue: ${inputValue}`);
-  // }
-  
   function handleNumber(num) {
-    console.log(`afterEqual: ${afterEqual}`);
     setInputValue(inputValue === 0 || afterEqual ? num : inputValue + num);
     setEvalValue(afterEqual ? num : evalValue + num);
     if (afterEqual) setAfterEqual(false);
