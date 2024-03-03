@@ -18,12 +18,12 @@
 
 .input-value {
     color: #eee;
-    font-size: 27px;
+    font-size: 24px;
     font-family: monospace;
 }
 
-.previous-value {
+.eval-value {
     color: #888;
-    font-size: 17px;
+    font-size: 24px;
     font-family: monospace;
 }

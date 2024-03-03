@@ -4,78 +4,106 @@ import './App.css';
 import Button from './components/Button';
 import ButtonClear from './components/ButtonClear';
 import Display from './components/Display';
+import { evaluate } from 'mathjs';
 
 function App() {
-  let previousValue = 500;
+  let [evalValue, setEvalValue] = useState('');
   let [inputValue, setInputValue] = useState(0);
-  let operator = '';
+  let [afterEqual, setAfterEqual] = useState(false);
 
-  const calcular = () => {
-    if (operator !== '') {
-      switch (operator) {
-        case '+': {
-          setInputValue(previousValue + inputValue);
-          previousValue = 0;
-          operator = '';
-          break;
-        }
-        case '−': {
-          setInputValue(previousValue - inputValue);
-          previousValue = 0;
-          operator = '';
-          break;
-        }
-        case '×': {
-          setInputValue(previousValue * inputValue);
-          previousValue = 0;
-          operator = '';
-          break;
-        }
-        case '÷': {
-          if (inputValue !== 0) {
-            setInputValue(previousValue / inputValue);
-            previousValue = 0;
-            operator = '';
-          }
-          break;
-        }
-        default: {
-          break;
-        }
+  // function handleNumber(num) {
+  //   if (inputValue === 0 ) {
+  //     setInputValue(num);
+  //     setEvalValue(evalValue + num);
+  //   } else if (afterEqual) {
+  //     afterEqual = false;
+  //     setInputValue(num);
+  //     setEvalValue(num);
+  //   } else {
+  //     setInputValue(inputValue + num);
+  //     setEvalValue(evalValue + num);
+  //   }
+  //   console.log(`EvalValue: ${evalValue}`);
+  //   console.log(`InputValue: ${inputValue}`);
+  // }
+  
+  function handleNumber(num) {
+    console.log(`afterEqual: ${afterEqual}`);
+    setInputValue(inputValue === 0 || afterEqual ? num : inputValue + num);
+    setEvalValue(afterEqual ? num : evalValue + num);
+    if (afterEqual) setAfterEqual(false);
+  }
+
+  function handleOperator(operator) {
+    switch (operator) {
+      case '−': {
+        operator = ' - ';
+        break;
+      }
+      case '×': {
+        operator = ' * ';
+        break;
+      }
+      case '÷': {
+        operator = ' / ';
+        break;
+      }
+      default: {
+        operator = ' + ';
+        break;
       }
     }
-  };
+    if (evalValue !== '') {
+      setEvalValue(evalValue + operator);
+      setInputValue(0);
+      setAfterEqual(false);
+    }
+  }
+
+  function handleEqual() {
+    setAfterEqual(true)
+    if (inputValue !== 0) {
+      setEvalValue(evaluate(evalValue));
+      setInputValue(0);
+    }
+  }
+
+  function handleClear() {
+    setEvalValue('');
+    setInputValue(0);
+    setAfterEqual(false);
+  }
 
   return (
     <div className='App'>
       <div className='calculator'>
-        <Display input={inputValue} />
+        <Display evalValue={evalValue} inputValue={inputValue} />
         <div className='line'>
-          <Button>1</Button>
-          <Button>2</Button>
-          <Button>3</Button>
-          <Button>+</Button>
+          <Button handleClic={handleNumber}>1</Button>
+          <Button handleClic={handleNumber}>2</Button>
+          <Button handleClic={handleNumber}>3</Button>
+          <Button handleClic={handleOperator}>+</Button>
         </div>
         <div className='line'>
-          <Button>4</Button>
-          <Button>5</Button>
-          <Button>6</Button>
-          <Button>−</Button>
+          <Button handleClic={handleNumber}>4</Button>
+          <Button handleClic={handleNumber}>5</Button>
+          <Button handleClic={handleNumber}>6</Button>
+          <Button handleClic={handleOperator}>−</Button>
         </div>
         <div className='line'>
-          <Button>7</Button>
-          <Button>8</Button>
-          <Button>9</Button>
-          <Button>×</Button>
+          <Button handleClic={handleNumber}>7</Button>
+          <Button handleClic={handleNumber}>8</Button>
+          <Button handleClic={handleNumber}>9</Button>
+          <Button handleClic={handleOperator}>×</Button>
         </div>
         <div className='line'>
-          <Button handleClic={calcular}> =</Button>
-          <Button>0</Button>
-          <Button>.</Button>
-          <Button>÷</Button>
+          <Button handleClic={handleEqual}> =</Button>
+          <Button handleClic={handleNumber}>0</Button>
+          <Button handleClic={handleNumber}>.</Button>
+          <Button handleClic={handleOperator}>÷</Button>
         </div>
         <div className='line'>
-          <ButtonClear>Clear</ButtonClear>
+          <ButtonClear handleClic={handleClear}>Clear</ButtonClear>
         </div>
       </div>
     </div>
